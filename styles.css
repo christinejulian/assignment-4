@@ -1,0 +1,30 @@
+/* styles.css */
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	margin:1rem;
+	background-color: black;
+	color: whitesmoke;
+	font-size: 5rem; 
+	overflow: hidden;
+	background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzc5eDZiOGlnN2hvZmxpaTJxZjIzbHZycTR3aTBoY3FldzExajBicSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pNsBooBjruKnm/giphy.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-colums: 1rf 1rf 1rf;
+	grid-template-colums: repeat(auto-fit, minmax(320px, 1fr));
+	gap: 2rem;
+	margin: 10% 4rem 0 4rem;
+}
+
+.last {
+	padding-bottom: 2rem;
+	border-bottom: 2px solid rgb (220, 200, 180);
+}
