@@ -1,30 +1,71 @@
 /* styles.css */
+
+/* Core page setup */
 html {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	margin:1rem;
-	background-color: black;
-	color: whitesmoke;
-	font-size: 5rem; 
-	overflow: hidden;
-	background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzc5eDZiOGlnN2hvZmxpaTJxZjIzbHZycTR3aTBoY3FldzExajBicSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/pNsBooBjruKnm/giphy.gif");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    margin: 0;
+    padding: 1rem;
+    background-color: black; /* Backup color */
+    color: whitesmoke;
+    font-size: 5rem; /* Matches your preference for large, impactful text */
+    font-family: serif; /* Adds a bit of classic style, can change to sans-serif */
+    overflow: hidden; /* Standard for background-image full cover */
+
+    /* background integration - point to your renamed image_0.png */
+    background-image: url("snowing.gif"); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the snow covers the screen */
 }
 
+/* Updated selector to match the reference provided in HTML */
 .grid-container {
-	display: grid;
-	grid-template-colums: 1rf 1rf 1rf;
-	grid-template-colums: repeat(auto-fit, minmax(320px, 1fr));
-	gap: 2rem;
-	margin: 10% 4rem 0 4rem;
+    display: grid;
+    /* Cleaned up duplicate/malformed grid declarations from prompt */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax for better flow */
+    gap: 2rem;
+    margin: 10% 4rem 0 4rem;
 }
 
+/* Base class for 'last' in a group, matching reference */
 .last {
-	padding-bottom: 2rem;
-	border-bottom: 2px solid rgb (220, 200, 180);
+    padding-bottom: 2rem;
+    border-bottom: 2px solid rgb(220, 200, 180); /* Subtle separator, fixed syntax */
+}
+
+/* NEW: Interactivity and Layout */
+
+/* Interactive hover effect on each word block */
+.grid-container > div {
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Words subtly lift and fade when hovered, like snow settling */
+.grid-container > div:hover {
+    transform: translateY(-5px);
+    opacity: 0.8;
+}
+
+/* Custom class to force newline/large spacing if needed in auto-fit */
+.line-end {
+    grid-column: 1 / -1; /* Make these divs span the entire width to start a new line */
+    padding-bottom: 3rem; /* Increase space after each line of the Haiku */
+}
+
+/* Adjust font size for mobile screens */
+@media (max-width: 768px) {
+    body {
+        font-size: 3rem;
+    }
+    .grid-container {
+        margin: 15% 2rem 0 2rem;
+        gap: 1.5rem;
+    }
 }
